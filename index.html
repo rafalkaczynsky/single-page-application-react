@@ -17,6 +17,13 @@
 
   <script type="text/babel">
 
+  var { Router,
+      Route,
+      IndexRoute,
+      IndexLink,
+      hashHistory,
+      Link } = ReactRouter;
+
       class App extends React.Component {
         render(){
             return(
@@ -28,8 +35,9 @@
                         <li>Contact</li>
                     </ul>
                     <div className="content">
-                        <Home />
+                        {this.props.children}
                     </div>
+                    <Footer />
                 </div>           
             )
         }
@@ -47,13 +55,34 @@
         }
     }
 
+    class Image extends React.Component{
+        render(){
+            return(
+                <div>
+                   <img src="https://cosmicjs.com/uploads/9c2d95d0-27b0-11e7-b6ae-8108cf4caa96-react.svg" width="100" alt="ciacho" />
+                </div>
+            )
+        }
+    }
+
+    class Footer extends React.Component{
+            render(){
+                return(
+                    <div className="footer">
+                        <Image />
+                        <p>Single Page Application created with React by <strong>Rafal Kaczynsky</strong></p>
+                    </div>
+                )
+            }
+    }
+
     
     ReactDOM.render(
-        <ReactRouter.Router history={ReactRouter.hashHistory}>
-            <ReactRouter.Route path="/" component={App}>
- 
-            </ReactRouter.Route>
-        </ReactRouter.Router>,
+        <Router history={hashHistory}>
+            <Route path="/" component={App}>
+                <IndexRoute component={Home}/>
+            </Route>
+        </Router>,
         document.getElementById("root")
     );
   

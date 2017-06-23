@@ -41,3 +41,9 @@ ul.header li a {
 .content li {
   margin-bottom: 10px;
 }
+.footer {
+  color: #6BB9F0;
+  text-align: center;
+  font-size: 12px;
+  margin: 100px;
+}
