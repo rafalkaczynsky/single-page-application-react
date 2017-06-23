@@ -7,7 +7,6 @@ body {
 h1 {
     color: #19B5FE;
     letter-spacing: 3px;
-    
 }
 h1, h2, p, ul, li {
   font-family: Helvetica, Arial, sans-serif;
@@ -15,7 +14,6 @@ h1, h2, p, ul, li {
 ul.header li {
   display: inline;
   list-style-type: none;
-  padding: 10px;
 }
 ul.header {
   background-color: #22313F;
