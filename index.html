@@ -17,6 +17,8 @@
   <div id="root"></div>
 
   <script type="text/babel">
+
+  
       class App extends React.Component {
         render(){
             return(
@@ -28,18 +30,33 @@
                         <li>Contact</li>
                     </ul>
                     <div className="content">
- 
+                        <Home />
                     </div>
                 </div>           
             )
         }
     }
 
+    class Home extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h2>HELLO</h2>
+                    <p>Hello Matey!!!  Welcome in my awsome Home page</p>
+                    <p>Let's find out something interesting for you out here...</p>
+                </div>              
+            )
+        }
+    }
+
+    
     ReactDOM.render(
-      <div>
-        <App />
-      </div>,
-      document.getElementById("root")
+        <ReactRouter.Router history={ReactRouter.hashHistory}>
+            <ReactRouter.Route path="/" component={App}>
+ 
+            </ReactRouter.Route>
+        </ReactRouter.Router>,
+        document.getElementById("root")
     );
   
   </script>
