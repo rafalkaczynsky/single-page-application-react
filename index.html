@@ -26,14 +26,15 @@
 
       class App extends React.Component {
         render(){
+            console.log(this.props.children)
             return(
                 <div>
                     <h1>React Developer Portfolio</h1>
                     <ul className="header">
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/portfolio">Portfolio</Link></li>
-                        <li><Link to="/about">About me</Link></li>
-                        <li><Link to="/contact">Contact</Link></li>
+                        <li><IndexLink to="/" activeClassName="active" >Home</IndexLink></li>
+                        <li><Link to="/portfolio" activeClassName="active" >Portfolio</Link></li>
+                        <li><Link to="/about" activeClassName="active" >About me</Link></li>
+                        <li><Link to="/contact" activeClassName="active" >Contact</Link></li>
                     </ul>
                     <div className="content">
                         {this.props.children}
@@ -51,7 +52,71 @@
                     <h2>HELLO</h2>
                     <p>Hello Matey!!!  Welcome in my awsome Home page</p>
                     <p>Let's find out something interesting for you out here...</p>
+
+                    
                 </div>              
+            )
+        }
+    }
+
+    class WebsiteOne extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h3>WEBSITE ONE</h3>
+                    <p>This website is about...</p>
+                </div>
+            )
+        }
+    }
+
+    
+    class WebsiteTwo extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h3>WEBSITE TWO</h3>
+                    <p>This website is about...</p>
+                </div>
+            )
+        }
+    }
+
+    
+    class WebsiteThree extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h3>WEBSITE THREE</h3>
+                    <p>This website is about...</p>
+                </div>
+            )
+        }
+    }
+
+    
+    class WebsiteFour extends React.Component{
+        render(){
+            return(
+                <div>
+                    <h3>WEBSITE FOUR</h3>
+                    <p>This website is about...</p>
+                </div>
+            )
+        }
+    }
+
+    class SideBar extends React.Component{
+        render(){
+            return(
+                <div className="sideBarContainer">
+                    <ul className="sideBar">
+                        <li><Link to="/portfolio/website1" activeClassName="activePortfolioList" >Website 1</Link></li>
+                        <li><Link to="/portfolio/website2" activeClassName="activePortfolioList" >Website 2</Link></li>
+                        <li><Link to="/portfolio/website3" activeClassName="activePortfolioList" >Website 3</Link></li>
+                        <li><Link to="/portfolio/website4" activeClassName="activePortfolioList" >Website 4</Link></li>
+                    </ul>
+                </div>
             )
         }
     }
@@ -61,8 +126,10 @@
             return(
                 <div>
                     <h2>Portfolio of my recent jobs</h2>
-                    <p>In progress...</p>
-                    <p>Let's find out something interesting for you out here...</p>
+                    <SideBar />
+                    <div className="portfolioContainer">
+                        {this.props.children}
+                    </div>
                 </div>              
             )
         }
@@ -73,8 +140,15 @@
             return(
                 <div>
                     <h2>About me</h2>
-                    <p>In progress...</p>
-                    <p>Let's find out something interesting for you out here...</p>
+                    <p>
+                        <strong>
+                            One of my strongest points is Front-end Development. I love figuring out the most maintainable, 
+                            reusable ways of building components
+                        </strong>
+                    </p>
+                    <p>I'm constantly on the look out to learn and experience new things, be it web related or anything out of the ordinary! 
+                        Occasionally I do side projects for my clients to help their full online potential & reach their conversion goals. 
+                        If you have any questions, or need some advice on a project, don’t hesitate to reach out. I'd love to chat with you.</p>
                 </div>              
             )
         }
@@ -118,7 +192,12 @@
         <Router history={hashHistory}>
             <Route path="/" component={App}>
                 <IndexRoute component={Home}/>
-                <Route path="portfolio" component={Portfolio} />
+                <Route path="portfolio" component={Portfolio}>
+                    <Route path="website1" component={WebsiteOne} />
+                    <Route path="website2" component={WebsiteTwo} />
+                    <Route path="website3" component={WebsiteThree} />
+                    <Route path="website4" component={WebsiteFour} />
+                </Route>
                 <Route path="about" component={About} />
                 <Route path="contact" component={Contact} />
             </Route>
