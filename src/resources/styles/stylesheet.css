@@ -5,8 +5,8 @@ body {
   font-style: italic;
 }
 h1 {
-    color: #19B5FE;
-    letter-spacing: 3px;
+  color: #19B5FE;
+  letter-spacing: 3px;
 }
 h1, h2, p, ul, li {
   font-family: Helvetica, Arial, sans-serif;
@@ -34,11 +34,15 @@ ul.header li a {
 .content {
   background-color: #6BB9F0;
   padding: 20px;
+  padding-left: 30px;
   color: #22313F;
+  width: 83%;
+  float: right;
 }
 .content h2 {
   padding: 0;
   margin: 30px;
+  margin-left: 0px;
 }
 .content li {
   margin-bottom: 10px;
@@ -61,7 +65,7 @@ ul.header li a {
 
 .sideBarContainer ul {
   background-color: #22313F;
-  margin: 0px 0px 30px 30px;
+  margin: 0px;
   padding: 0px;
 }
 
